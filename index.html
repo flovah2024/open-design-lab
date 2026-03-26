@@ -3,212 +3,463 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Open Design Lab Overview</title>
-</head>
-<body style="margin:0; padding:0; background-color:#f0f0f0; font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕','Segoe UI',Roboto,sans-serif; -webkit-font-smoothing:antialiased;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0f0f0;">
-<tr><td align="center" style="padding:24px 16px;">
-<table role="presentation" width="680" cellpadding="0" cellspacing="0" style="background-color:#ffffff;">
+<title>Open Design Lab</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', 'ë§ì ê³ ë', 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #ffffff;
+    color: #222222;
+  }
+  a { text-decoration: none; color: inherit; }
 
-<!-- HERO: Header (white, Figma style) -->
-<tr>
-<td style="background:#ffffff; padding:480px 60px 480px; vertical-align:middle;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-      <td style="text-align:left; vertical-align:middle;">
-        <div style="display:inline-block; width:22px; height:28px; background:#3366FF; border-radius:11px 11px 0 0; vertical-align:middle; margin-right:10px;"></div><span style="font-size:20px; color:#111111; font-weight:600; letter-spacing:-0.3px; vertical-align:middle;">Open Design Lab</span>
-      </td>
-      <td style="text-align:right; vertical-align:middle;">
-        <span style="font-size:13px; color:#888888; letter-spacing:0.5px;">Designed by</span> <span style="font-size:13px; color:#333333; font-weight:600; letter-spacing:1px;">HYUNDAI</span>
-      </td>
-    </tr>
-  </table>
-</td>
-</tr>
-<!-- HERO: Description (dark with bg image) -->
-<tr>
-<td style="background:#000000; padding:0; text-align:center; position:relative; overflow:hidden;">
-  <img src="https://www.opendesignlab.com/contents/images/hfo-main-image.jpg" alt="" width="1360" style="display:block; opacity:0.2; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:200%; max-width:none; height:auto;">
-  <div style="position:absolute; bottom:0; left:0; width:100%; height:60%; background:linear-gradient(to top, #000000 0%, #000000 20%, transparent 100%); z-index:1;"></div>
-  <div style="position:relative; z-index:2; padding:56px 60px 56px;">
-    <div style="width:1px; height:36px; background:#333333; margin:0 auto 36px;"></div>
-    <div style="font-size:15px; color:#999999; line-height:2;">
-      Open Design Lab은 모빌리티를 중심으로 더 나은 미래를 만들어 가기 위해<br>
-      다양한 사람들이 함께 연구하는 <span style="color:#ffffff;">오픈 플랫폼</span> 입니다.
+  /* NAV */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 60px;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-logo .symbol {
+    width: 22px;
+    height: 28px;
+    background: #3366FF;
+    border-radius: 11px 11px 0 0;
+    flex-shrink: 0;
+  }
+  .nav-logo span {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111111;
+    letter-spacing: -0.3px;
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #888888;
+    letter-spacing: 0.3px;
+  }
+  .nav-right strong {
+    color: #333333;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  /* HERO / FEATURED PROJECT */
+  .hero {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 40px 60px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .hero-image {
+    flex: 0 0 58%;
+    max-width: 58%;
+  }
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+  }
+  .hero-text {
+    flex: 1;
+    padding-right: 20px;
+  }
+  .hero-text h1 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #111111;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .hero-text .subtitle {
+    font-size: 18px;
+    color: #666666;
+    margin-bottom: 32px;
+  }
+  .hero-text .desc {
+    font-size: 15px;
+    color: #888888;
+    line-height: 1.8;
+  }
+  .dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 40px;
+  }
+  .dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #dddddd;
+  }
+  .dots .dot.active {
+    background: #3366FF;
+  }
+
+  /* SHAPING SECTION */
+  .shaping {
+    background: #EEF2FF;
+    padding: 100px 60px;
+    text-align: center;
+  }
+  .shaping h2 {
+    font-size: 52px;
+    font-weight: 800;
+    color: #3366FF;
+    line-height: 1.3;
+  }
+  .shaping .counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 40px;
+    background: rgba(51,102,255,0.1);
+    border-radius: 30px;
+    padding: 10px 24px;
+  }
+  .shaping .counter span {
+    font-size: 14px;
+    color: #3366FF;
+    font-weight: 600;
+  }
+  .shaping .counter .arrow {
+    width: 28px;
+    height: 28px;
+    background: #3366FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  /* PHILOSOPHY */
+  .philosophy {
+    background: #000000;
+    padding: 80px 60px;
+  }
+  .philosophy-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .philosophy .label {
+    font-size: 11px;
+    color: #666666;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .philosophy h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+  .philosophy .desc {
+    font-size: 14px;
+    color: #888888;
+    line-height: 1.8;
+    margin-bottom: 56px;
+  }
+  .values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .value-item {
+    border-top: 1px solid #222222;
+    padding-top: 24px;
+  }
+  .value-item h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+  }
+  .value-item .sub {
+    font-size: 12px;
+    color: #666666;
+    margin-bottom: 14px;
+  }
+  .value-item p {
+    font-size: 13px;
+    color: #888888;
+    line-height: 1.9;
+  }
+
+  /* PROJECTS GRID */
+  .projects {
+    padding: 80px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .projects .label {
+    font-size: 11px;
+    color: #999999;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .projects h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 40px;
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+  .project-card .info {
+    padding: 14px 4px;
+  }
+  .project-card .info h5 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 4px;
+  }
+  .project-card .info p {
+    font-size: 12px;
+    color: #999999;
+  }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    padding: 20px 60px 80px;
+  }
+  .cta a {
+    display: inline-block;
+    background: #222222;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 16px 56px;
+    border-radius: 8px;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #f8f8f8;
+    padding: 28px 60px;
+    border-top: 1px solid #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer .name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #222222;
+  }
+  .footer .copy {
+    font-size: 11px;
+    color: #bbbbbb;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav { padding: 16px 24px; }
+    .hero { flex-direction: column; padding: 24px; gap: 32px; }
+    .hero-image { flex: none; max-width: 100%; }
+    .hero-text h1 { font-size: 28px; }
+    .shaping { padding: 60px 24px; }
+    .shaping h2 { font-size: 32px; }
+    .philosophy { padding: 48px 24px; }
+    .values { grid-template-columns: 1fr; }
+    .projects { padding: 48px 24px; }
+    .project-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .footer { padding: 20px 24px; flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="symbol"></div>
+    <span>Open Design Lab</span>
+  </div>
+  <div class="nav-right">
+    Designed by <strong>HYUNDAI</strong>
+  </div>
+</nav>
+
+<!-- FEATURED PROJECT -->
+<section class="hero">
+  <div class="hero-image">
+    <a href="https://www.opendesignlab.com/project/mobile_nap" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-mn-sq.jpg" alt="Mobile Nap">
+    </a>
+  </div>
+  <div class="hero-text">
+    <h1>Mobile Nap</h1>
+    <p class="subtitle">Wellness solution for sleep</p>
+    <p class="desc">
+      Have you ever taken a quiet moment for yourself inside your car? Amid the rush of daily life, the automobile is evolving beyond a means of transportation into a small personal sanctuary. In those brief pauses, even a short nap can become a powerful reset.
+    </p>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
   </div>
-</td>
-</tr>
+</section>
 
-<!-- BRAND IMAGE -->
-<tr>
-<td style="background:#000000; padding:0; line-height:0;">
-  <img src="https://www.opendesignlab.com/images/brand-image-1.png" alt="Open Design Lab Brand" width="680" style="display:block; width:100%; height:auto;">
-</td>
-</tr>
-
-<!-- PHILOSOPHY -->
-<tr>
-<td style="background:#000000; padding:56px 60px 64px;">
-  <div style="font-size:11px; color:#666666; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px;">Philosophy</div>
-  <div style="font-size:28px; font-weight:700; color:#ffffff; line-height:1.4;">Shaping the Better Future</div>
-  <div style="font-size:14px; color:#888888; line-height:1.8; margin-top:16px;">미래에 긍정적 영향을 미치고 혁신을 현실로 이끌어 가는 순환의 과정을 만들어 갑니다.</div>
-</td>
-</tr>
-
-<!-- 4 CORE VALUES -->
-<tr>
-<td style="background:#000000; padding:0 60px 72px;">
-
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:40px;">
-    <tr>
-      <td width="45%" style="vertical-align:top;">
-        <div style="font-size:22px; font-weight:700; color:#ffffff;">Harmonization</div>
-        <div style="font-size:12px; color:#666666; margin-top:6px;">Embrace Diversity To Create</div>
-      </td>
-      <td width="55%" style="vertical-align:top; padding-left:24px;">
-        <div style="font-size:13px; color:#888888; line-height:1.9;">다양성을 존중하고, 모두를 포용하며,<br>인간과 자연, 로봇과 AI가 공생하는 조화로운 미래를 만들어 가고자 합니다.</div>
-      </td>
-    </tr>
-  </table>
-  <div style="width:100%; height:1px; background:#1a1a1a; margin-bottom:40px;"></div>
-
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:40px;">
-    <tr>
-      <td width="45%" style="vertical-align:top;">
-        <div style="font-size:22px; font-weight:700; color:#ffffff;">Exploring</div>
-        <div style="font-size:12px; color:#666666; margin-top:6px;">As a First Mover</div>
-      </td>
-      <td width="55%" style="vertical-align:top; padding-left:24px;">
-        <div style="font-size:13px; color:#888888; line-height:1.9;">미래 연구의 선두주자로서 미지의 영역을 미리 탐험하고,<br>창의적인 아이디어들을 적극적으로 테스트합니다.</div>
-      </td>
-    </tr>
-  </table>
-  <div style="width:100%; height:1px; background:#1a1a1a; margin-bottom:40px;"></div>
-
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:40px;">
-    <tr>
-      <td width="45%" style="vertical-align:top;">
-        <div style="font-size:22px; font-weight:700; color:#ffffff;">Expand possibilities</div>
-        <div style="font-size:12px; color:#666666; margin-top:6px;">For Limitless Ecosystem</div>
-      </td>
-      <td width="55%" style="vertical-align:top; padding-left:24px;">
-        <div style="font-size:13px; color:#888888; line-height:1.9;">모빌리티와 인프라, 주거환경이 연결되며<br>확장성이 무한한 모빌리티 생태계를 구축합니다.</div>
-      </td>
-    </tr>
-  </table>
-  <div style="width:100%; height:1px; background:#1a1a1a; margin-bottom:40px;"></div>
-
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-      <td width="45%" style="vertical-align:top;">
-        <div style="font-size:22px; font-weight:700; color:#ffffff;">Future library</div>
-        <div style="font-size:12px; color:#666666; margin-top:6px;">For Welcoming the Tomorrow</div>
-      </td>
-      <td width="55%" style="vertical-align:top; padding-left:24px;">
-        <div style="font-size:13px; color:#888888; line-height:1.9;">다가오는 내일을 위해 미래를 미리 탐구하고,<br>아카이빙하며 자유롭게 공유하는 오픈 라이브러리 입니다.</div>
-      </td>
-    </tr>
-  </table>
-
-</td>
-</tr>
-
-<!-- QUOTE -->
-<tr>
-<td style="background:#111111; padding:56px 60px; text-align:center;">
-  <div style="font-size:24px; font-weight:700; color:#ffffff; line-height:1.8;">
-    과거를 기억하고,<br>현재를 실험하며,<br>미래를 바라본다.
+<!-- SHAPING THE BETTER FUTURE -->
+<section class="shaping">
+  <h2>Shaping the<br>Better Future!</h2>
+  <div class="counter">
+    <div class="arrow">&larr;</div>
+    <span>15 / 22</span>
+    <div class="arrow">&rarr;</div>
   </div>
-</td>
-</tr>
+</section>
 
-<!-- PROJECTS HEADER -->
-<tr>
-<td style="background:#ffffff; padding:56px 60px 28px;">
-  <div style="font-size:11px; color:#999999; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px;">Projects</div>
-  <div style="font-size:24px; font-weight:700; color:#222222;">프로젝트</div>
-</td>
-</tr>
+<!-- PHILOSOPHY & VALUES -->
+<section class="philosophy">
+  <div class="philosophy-inner">
+    <div class="label">Philosophy</div>
+    <h3>Shaping the Better Future</h3>
+    <p class="desc">ë¯¸ëì ê¸ì ì  ìí¥ì ë¯¸ì¹ê³  íì ì íì¤ë¡ ì´ëì´ ê°ë ìíì ê³¼ì ì ë§ë¤ì´ ê°ëë¤.</p>
+    <div class="values">
+      <div class="value-item">
+        <h4>Harmonization</h4>
+        <div class="sub">Embrace Diversity To Create</div>
+        <p>ë¤ìì±ì ì¡´ì¤íê³ , ëª¨ëë¥¼ í¬ì©íë©°, ì¸ê°ê³¼ ìì°, ë¡ë´ê³¼ AIê° ê³µìíë ì¡°íë¡ì´ ë¯¸ëë¥¼ ë§ë¤ì´ ê°ê³ ì í©ëë¤.</p>
+      </div>
+      <div class="value-item">
+        <h4>Exploring</h4>
+        <div class="sub">As a First Mover</div>
+        <p>ë¯¸ë ì°êµ¬ì ì ëì£¼ìë¡ì ë¯¸ì§ì ìì­ì ë¯¸ë¦¬ íííê³ , ì°½ìì ì¸ ìì´ëì´ë¤ì ì ê·¹ì ì¼ë¡ íì¤í¸í©ëë¤.</p>
+      </div>
+      <div class="value-item">
+        <h4>Expand possibilities</h4>
+        <div class="sub">For Limitless Ecosystem</div>
+        <p>ëª¨ë¹ë¦¬í°ì ì¸íë¼, ì£¼ê±°íê²½ì´ ì°ê²°ëë©° íì¥ì±ì´ ë¬´íí ëª¨ë¹ë¦¬í° ìíê³ë¥¼ êµ¬ì¶µí©ëë¤.</p>
+      </div>
+      <div class="value-item">
+        <h4>Future library</h4>
+        <div class="sub">For Welcoming the Tomorrow</div>
+        <p>ë¤ê°ì¤ë ë´ì¼ì ìí´ ë¯¸ëë¥¼ ë¯¸ë¦¬ íêµ¬íê³ , ìì¹¹ì´ë¹íë©° ìì ë¡­ê² ê³µì íë ì¤í ë¼ì´ë¸ë¬ë¦¬ ìëë¤.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- ROW 1 -->
-<tr>
-<td style="background:#fff; padding:0 56px;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/hello-future-office" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-hfo-sq.jpg" alt="Hello, Future Office!" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">Hello, Future Office!</div><div style="font-size:10px;color:#999;margin-top:3px;">A space where creativity becomes reality</div></div></a></td>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/mobed" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-med-sq.jpg" alt="MobED" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">MobED</div><div style="font-size:10px;color:#999;margin-top:3px;">Ultimate Autonomous Mobility</div></div></a></td>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/mobile_nap" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-mn-sq.jpg" alt="Mobile Nap" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">Mobile Nap</div><div style="font-size:10px;color:#999;margin-top:3px;">Wellness solution for sleep</div></div></a></td>
-  </tr></table>
-</td>
-</tr>
+<!-- PROJECTS -->
+<section class="projects">
+  <div class="label">Projects</div>
+  <h3>íë¡ì í¸</h3>
+  <div class="project-grid">
 
-<!-- ROW 2 -->
-<tr>
-<td style="background:#fff; padding:0 56px;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/the-healing-wall" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-hw-sq.jpg" alt="The Healing Wall" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">The Healing Wall</div><div style="font-size:10px;color:#999;margin-top:3px;">Radically More Human</div></div></a></td>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/furnished-rounge" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-fl-sq.jpg" alt="Furnished Lounge" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">Furnished Lounge</div><div style="font-size:10px;color:#999;margin-top:3px;">Bring Your Own Lifestyle</div></div></a></td>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/nano-mobility" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-nm-sq.jpg" alt="Nano mobility" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">Nano Mobility</div><div style="font-size:10px;color:#999;margin-top:3px;">Mobility for All</div></div></a></td>
-  </tr></table>
-</td>
-</tr>
+    <a class="project-card" href="https://www.opendesignlab.com/project/hello-future-office" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-hfo-sq.jpg" alt="Hello, Future Office!">
+      <div class="info"><h5>Hello, Future Office!</h5><p>A space where creativity becomes reality</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/mobed" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-med-sq.jpg" alt="MobED">
+      <div class="info"><h5>MobED</h5><p>Ultimate Autonomous Mobility</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/mobile_nap" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-mn-sq.jpg" alt="Mobile Nap">
+      <div class="info"><h5>Mobile Nap</h5><p>Wellness solution for sleep</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/the-healing-wall" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-hw-sq.jpg" alt="The Healing Wall">
+      <div class="info"><h5>The Healing Wall</h5><p>Radically More Human</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/furnished-rounge" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-fl-sq.jpg" alt="Furnished Lounge">
+      <div class="info"><h5>Furnished Lounge</h5><p>Bring Your Own Lifestyle</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/nano-mobility" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-nm-sq.jpg" alt="Nano Mobility">
+      <div class="info"><h5>Nano Mobility</h5><p>Mobility for All</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/robotic-space" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-rb-sq.jpg" alt="ROBOTIC SPACE">
+      <div class="info"><h5>ROBOTIC SPACE</h5><p>A Platform Beyond Mobility</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/ioniq-lifestyle-items" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-ioniq-sq.jpg" alt="IONIQ Lifestyle Items">
+      <div class="info"><h5>IONIQ Lifestyle Items</h5><p>Lifestyle Items</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/casper-ev-best-me-item" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-bm-sq.jpg" alt="Casper EV BEST ME Item">
+      <div class="info"><h5>Casper EV "BEST ME" Item</h5><p>We Are Eartist!</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/qom" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-qom-sq.jpg" alt="QOM">
+      <div class="info"><h5>[QOM] Quality Of Moments</h5><p>Lifestyle Items</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/regeneration-studio" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-mob-sq.jpg" alt="Regeneration Studio">
+      <div class="info"><h5>Regeneration Studio</h5><p>with RISD Nature Lab</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/robo-restaurant" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-robo-sq.jpg" alt="ROBO Restaurant">
+      <div class="info"><h5>ROBO Restaurant</h5><p>Robot &amp; Mobility Platform</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/smart-taxi-indicator" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-taxi-sq.jpg" alt="Smart Taxi Indicator">
+      <div class="info"><h5>Smart Taxi Indicator</h5><p>Design to Communicate with People</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/dice" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-dice-sq.jpg" alt="DICE">
+      <div class="info"><h5>DICE</h5><p>Digital Curated Experience</p></div>
+    </a>
+    <a class="project-card" href="https://www.opendesignlab.com/project/space" target="_blank">
+      <img src="https://www.opendesignlab.com/contents/images/thumb-space-sq.jpg" alt="SPACE">
+      <div class="info"><h5>SPACE</h5><p>Spatial Curated Experience</p></div>
+    </a>
 
-<!-- ROW 3 -->
-<tr>
-<td style="background:#fff; padding:0 56px;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/robotic-space" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-rb-sq.jpg" alt="ROBOTIC SPACE" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">ROBOTIC SPACE</div><div style="font-size:10px;color:#999;margin-top:3px;">A Platform Beyond Mobility</div></div></a></td>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/ioniq-lifestyle-items" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-ioniq-sq.jpg" alt="IONIQ Lifestyle Items" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">IONIQ Lifestyle Items</div><div style="font-size:10px;color:#999;margin-top:3px;">Lifestyle Items</div></div></a></td>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/casper-ev-best-me-item" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-bm-sq.jpg" alt="Casper EV BEST ME Item" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">Casper EV "BEST ME" Item</div><div style="font-size:10px;color:#999;margin-top:3px;">We Are Eartist!</div></div></a></td>
-  </tr></table>
-</td>
-</tr>
-
-<!-- ROW 4 -->
-<tr>
-<td style="background:#fff; padding:0 56px;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/qom" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-qom-sq.jpg" alt="QOM" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">[QOM] Quality Of Moments</div><div style="font-size:10px;color:#999;margin-top:3px;">Lifestyle Items</div></div></a></td>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/regeneration-studio" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-mob-sq.jpg" alt="Regeneration Studio" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">Regeneration Studio</div><div style="font-size:10px;color:#999;margin-top:3px;">with RISD Nature Lab</div></div></a></td>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/robo-restaurant" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-robo-sq.jpg" alt="ROBO Restaurant" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">ROBO Restaurant</div><div style="font-size:10px;color:#999;margin-top:3px;">Robot &amp; Mobility Platform</div></div></a></td>
-  </tr></table>
-</td>
-</tr>
-
-<!-- ROW 5 -->
-<tr>
-<td style="background:#fff; padding:0 56px;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/smart-taxi-indicator" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-taxi-sq.jpg" alt="Smart Taxi Indicator" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">Smart Taxi Indicator</div><div style="font-size:10px;color:#999;margin-top:3px;">Design to Communicate with People</div></div></a></td>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/dice" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-dice-sq.jpg" alt="DICE" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">DICE</div><div style="font-size:10px;color:#999;margin-top:3px;">Digital Curated Experience</div></div></a></td>
-    <td width="33.33%" style="padding:4px;"><a href="https://www.opendesignlab.com/project/space" target="_blank" style="text-decoration:none;"><img src="https://www.opendesignlab.com/contents/images/thumb-space-sq.jpg" alt="SPACE" width="180" style="display:block;width:100%;height:auto;border-radius:4px;"><div style="padding:10px 2px 16px;"><div style="font-size:13px;font-weight:700;color:#222;">SPACE</div><div style="font-size:10px;color:#999;margin-top:3px;">Spatial Curated Experience</div></div></a></td>
-  </tr></table>
-</td>
-</tr>
+  </div>
+</section>
 
 <!-- CTA -->
-<tr>
-<td style="background:#ffffff; padding:24px 60px 56px; text-align:center;">
-  <a href="https://www.opendesignlab.com/" target="_blank" style="display:inline-block; background:#222222; color:#ffffff; font-size:14px; font-weight:600; text-decoration:none; padding:14px 48px;">
-    www.opendesignlab.com
-  </a>
-</td>
-</tr>
+<section class="cta">
+  <a href="https://www.opendesignlab.com/" target="_blank">www.opendesignlab.com</a>
+</section>
 
 <!-- FOOTER -->
-<tr>
-<td style="background:#f8f8f8; padding:24px 60px; border-top:1px solid #eeeeee;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-      <td style="font-size:12px; font-weight:700; color:#222222;">Open Design Lab</td>
-      <td align="right" style="font-size:10px; color:#bbbbbb;">Copyright &copy; Hyundai Motor Company. All Rights Reserved.</td>
-    </tr>
-  </table>
-</td>
-</tr>
+<footer class="footer">
+  <div class="name">Open Design Lab</div>
+  <div class="copy">Copyright &copy; Hyundai Motor Company. All Rights Reserved.</div>
+</footer>
 
-</table>
-</td></tr>
-</table>
 </body>
 </html>
