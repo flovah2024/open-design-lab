@@ -18,7 +18,7 @@
   .nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 24px 60px;
     background: #ffffff;
     position: sticky;
@@ -29,19 +29,6 @@
     height: 28px;
     width: auto;
     display: block;
-  }
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: #888888;
-    letter-spacing: 0.3px;
-  }
-  .nav-right strong {
-    color: #333333;
-    font-weight: 700;
-    letter-spacing: 1px;
   }
 
   /* HERO BANNER */
@@ -71,32 +58,6 @@
     font-weight: 800;
     color: #3366FF;
     line-height: 1.3;
-  }
-  .shaping .counter {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    margin-top: 40px;
-    background: rgba(51,102,255,0.1);
-    border-radius: 30px;
-    padding: 10px 24px;
-  }
-  .shaping .counter span {
-    font-size: 14px;
-    color: #3366FF;
-    font-weight: 600;
-  }
-  .shaping .counter .arrow {
-    width: 28px;
-    height: 28px;
-    background: #3366FF;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
   }
 
   /* PHILOSOPHY */
@@ -219,14 +180,7 @@
     background: #f8f8f8;
     padding: 28px 60px;
     border-top: 1px solid #eeeeee;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .footer .name {
-    font-size: 13px;
-    font-weight: 700;
-    color: #222222;
+    text-align: center;
   }
   .footer .copy {
     font-size: 11px;
@@ -243,7 +197,7 @@
     .values { grid-template-columns: 1fr; }
     .projects { padding: 48px 24px; }
     .project-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .footer { padding: 20px 24px; flex-direction: column; gap: 8px; }
+    .footer { padding: 20px 24px; }
   }
 </style>
 </head>
@@ -253,9 +207,6 @@
 <nav class="nav">
   <div class="nav-logo">
     <img src="https://www.opendesignlab.com/images/logo-gnb.svg" alt="Open Design Lab">
-  </div>
-  <div class="nav-right">
-    Designed by <strong>HYUNDAI</strong>
   </div>
 </nav>
 
@@ -269,11 +220,6 @@
 <!-- SHAPING THE BETTER FUTURE -->
 <section class="shaping">
   <h2>Shaping the<br>Better Future!</h2>
-  <div class="counter">
-    <div class="arrow">&larr;</div>
-    <span>15 / 22</span>
-    <div class="arrow">&rarr;</div>
-  </div>
 </section>
 
 <!-- PHILOSOPHY & VALUES -->
@@ -384,7 +330,6 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="name">Open Design Lab</div>
   <div class="copy">Copyright &copy; Hyundai Motor Company. All Rights Reserved.</div>
 </footer>
 
