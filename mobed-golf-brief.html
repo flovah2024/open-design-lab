@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한그린 디렉터님 업무 정리 — 골프 파트</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #111113;
+    color: #e8e8e8;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+  }
+
+  /* Header */
+  .header {
+    margin-bottom: 48px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 28px;
+  }
+  .header-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+    color: #fff;
+  }
+  .header .subtitle {
+    font-size: 15px;
+    color: #aaa;
+    font-weight: 400;
+  }
+  .header .date-badge {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 4px 14px;
+    background: #e8e8e8;
+    color: #111;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Alert box */
+  .alert {
+    background: #1e1712;
+    border-left: 4px solid #ff8a50;
+    padding: 18px 24px;
+    margin-bottom: 40px;
+    border-radius: 0 8px 8px 0;
+  }
+  .alert-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ff8a50;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .alert p {
+    font-size: 14px;
+    color: #ccc;
+  }
+  .alert .folder-name {
+    display: inline-block;
+    background: #ff8a50;
+    color: #111;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 6px;
+    font-family: monospace;
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 44px;
+  }
+  .section-title {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #333;
+  }
+
+  /* Info table */
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .info-table tr {
+    border-bottom: 1px solid #2a2a2e;
+  }
+  .info-table tr:last-child {
+    border-bottom: none;
+  }
+  .info-table th {
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+    color: #777;
+    padding: 12px 16px 12px 0;
+    width: 140px;
+    vertical-align: top;
+  }
+  .info-table td {
+    font-size: 14px;
+    padding: 12px 0;
+    font-weight: 400;
+  }
+
+  /* Kling guide */
+  .guide-card {
+    background: #1a1a1e;
+    border: 1px solid #2a2a2e;
+    border-radius: 10px;
+    padding: 28px 30px;
+    margin-bottom: 16px;
+  }
+  .guide-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+  .guide-row {
+    display: flex;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid #252528;
+  }
+  .guide-row:last-child { border-bottom: none; }
+  .guide-key {
+    width: 120px;
+    flex-shrink: 0;
+    font-size: 13px;
+    color: #777;
+    font-weight: 500;
+  }
+  .guide-val {
+    font-size: 14px;
+  }
+
+  /* Steps */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+  }
+  .steps li {
+    counter-increment: step;
+    padding: 10px 0 10px 36px;
+    position: relative;
+    font-size: 14px;
+    border-bottom: 1px solid #252528;
+  }
+  .steps li:last-child { border-bottom: none; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 22px;
+    height: 22px;
+    background: #e8e8e8;
+    color: #111;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Element chips */
+  .element-grid {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .element-chip {
+    background: #1a1a1e;
+    border: 1px solid #2a2a2e;
+    border-radius: 10px;
+    padding: 18px 24px;
+    flex: 1;
+    text-align: center;
+  }
+  .element-chip .name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #fff;
+  }
+  .element-chip .type {
+    font-size: 12px;
+    color: #777;
+  }
+
+  /* Location cards */
+  .location-card {
+    background: #1a1a1e;
+    border: 1px solid #2a2a2e;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 14px;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+  .location-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .location-num {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #252528;
+    line-height: 1;
+  }
+  .location-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #fff;
+  }
+  .location-card .cn-name {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 12px;
+  }
+  .location-detail {
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.8;
+  }
+  .location-note {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #151518;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Character spec */
+  .char-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .char-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #1a1a1e;
+    border: 1px solid #2a2a2e;
+    border-radius: 8px;
+  }
+  .char-label {
+    font-size: 12px;
+    color: #777;
+    font-weight: 500;
+    width: 50px;
+    flex-shrink: 0;
+  }
+  .char-value {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .char-full {
+    grid-column: 1 / -1;
+  }
+  .color-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #555;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+
+  /* Calendar */
+  .calendar {
+    background: #1a1a1e;
+    border: 1px solid #2a2a2e;
+    border-radius: 10px;
+    padding: 24px;
+    overflow-x: auto;
+  }
+  .cal-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  .cal-header span {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+    padding: 6px 0;
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+  .cal-day {
+    position: relative;
+    min-height: 72px;
+    border-radius: 8px;
+    padding: 8px;
+    background: #151518;
+    border: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .cal-day:hover {
+    border-color: #444;
+  }
+  .cal-day.empty {
+    background: transparent;
+    border: none;
+  }
+  .cal-day .day-num {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  .cal-day .day-label {
+    font-size: 10px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .cal-day.phase-work {
+    background: rgba(99,102,241,0.12);
+    border-color: rgba(99,102,241,0.25);
+  }
+  .cal-day.phase-work .day-num { color: #a5b4fc; }
+  .cal-day.phase-work .day-label { color: #c7d2fe; }
+
+  .cal-day.phase-review {
+    background: rgba(34,197,94,0.12);
+    border-color: rgba(34,197,94,0.25);
+  }
+  .cal-day.phase-review .day-num { color: #86efac; }
+  .cal-day.phase-review .day-label { color: #bbf7d0; }
+
+  .cal-day.phase-milestone {
+    background: rgba(255,138,80,0.18);
+    border-color: rgba(255,138,80,0.4);
+  }
+  .cal-day.phase-milestone .day-num { color: #ff8a50; }
+  .cal-day.phase-milestone .day-label { color: #ffb899; font-weight: 700; }
+
+  .cal-day.phase-final {
+    background: rgba(244,63,94,0.12);
+    border-color: rgba(244,63,94,0.25);
+  }
+  .cal-day.phase-final .day-num { color: #fda4af; }
+  .cal-day.phase-final .day-label { color: #fecdd3; }
+
+  .cal-day.phase-deadline {
+    background: rgba(255,138,80,0.25);
+    border-color: #ff8a50;
+  }
+  .cal-day.phase-deadline .day-num { color: #fff; font-weight: 700; }
+  .cal-day.phase-deadline .day-label { color: #fff; font-weight: 700; }
+
+  .cal-day.today {
+    box-shadow: inset 0 0 0 2px #fff;
+  }
+  .cal-day.today .day-num { color: #fff; }
+
+  .cal-day.rest {
+    background: #151518;
+    border-color: transparent;
+    opacity: 0.45;
+  }
+  .cal-day.rest .day-num { color: #555; }
+  .cal-day.rest .day-label { color: #555; }
+
+  .cal-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #252528;
+  }
+  .cal-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #999;
+  }
+  .cal-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* Download bar */
+  .download-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #1a1a1e;
+    border: 1px solid #2a2a2e;
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-bottom: 40px;
+  }
+  .download-bar .file-icon {
+    width: 40px;
+    height: 40px;
+    background: #e74c3c;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+  }
+  .download-bar .file-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .download-bar .file-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #e8e8e8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .download-bar .file-meta {
+    font-size: 11px;
+    color: #777;
+    margin-top: 2px;
+  }
+  .download-bar .dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .download-bar .dl-btn:hover {
+    background: #ddd;
+  }
+
+  /* Process flow */
+  .process-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 32px;
+  }
+  .process-step {
+    flex: 1;
+    background: #1a1a1e;
+    border: 1px solid #2a2a2e;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    position: relative;
+  }
+  .process-step .step-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: #555;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .process-step .step-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .process-step .step-desc {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.5;
+  }
+  .process-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    color: #555;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .process-flow {
+      flex-direction: column;
+      gap: 0;
+    }
+    .process-arrow {
+      justify-content: center;
+      padding: 4px 0;
+      transform: rotate(90deg);
+    }
+  }
+
+  /* Editable */
+  [contenteditable] {
+    outline: none;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  [contenteditable]:hover {
+    background: rgba(255,255,255,0.04);
+  }
+  [contenteditable]:focus {
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
+  }
+
+  /* Calendar done state */
+  .cal-day.done {
+    background: rgba(34,197,94,0.2) !important;
+    border-color: rgba(34,197,94,0.5) !important;
+    opacity: 1 !important;
+  }
+  .cal-day.done .day-num {
+    color: #86efac !important;
+  }
+  .cal-day.done .day-label {
+    color: #86efac !important;
+  }
+  .cal-day .done-badge {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(34,197,94,0.8);
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    pointer-events: none;
+  }
+  .cal-day.done .done-badge {
+    display: block;
+  }
+  .cal-day:not(.empty):not(.rest) {
+    cursor: pointer;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #333;
+    text-align: center;
+  }
+  .footer p {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 32px 20px 60px; }
+    .header h1 { font-size: 22px; }
+    .char-grid { grid-template-columns: 1fr; }
+    .element-grid { flex-direction: column; }
+    .info-table th { width: 100px; }
+  }
+
+  @media print {
+    body { background: #111113; }
+    .page { padding: 40px 20px; }
+    .location-card:hover { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-label">Work Brief — Golf Part</div>
+    <h1 contenteditable="true">베이징모터쇼 MobED 영상 제작</h1>
+    <p class="subtitle" contenteditable="true">한그린 디렉터님 업무 정리</p>
+  </header>
+
+  <!-- Client PDF Download -->
+  <div class="download-bar">
+    <div class="file-icon">PDF</div>
+    <div class="file-info">
+      <div class="file-name">베이징모터쇼 MobED영상제작 계획 0323-v3.pdf</div>
+      <div class="file-meta">클라이언트 원본 기획서 · 1.1 MB</div>
+    </div>
+    <a class="dl-btn" href="https://drive.google.com/file/d/1Lpqps9cvITEu-1lBufUNsH9W3kQ2sQeu/view?usp=sharing" target="_blank" rel="noopener">↓ 다운로드</a>
+  </div>
+
+  <!-- Alert -->
+  <div class="alert">
+    <div class="alert-title">⚠ 작업 환경 이슈</div>
+    <p contenteditable="true">현재 사무실 서버가 작동하지 않습니다. 모든 작업은 <strong>로컬 환경</strong>에서 진행해 주세요.</p>
+    <span class="folder-name">20260319_MobED_Beijing_Local</span>
+    <p style="margin-top:4px; font-size:12px; color:#999;">팀 전체 통일 폴더명</p>
+  </div>
+
+  <!-- 프로젝트 개요 -->
+  <section class="section">
+    <div class="section-title">01 &mdash; 프로젝트 개요</div>
+    <table class="info-table">
+      <tr><th>프로젝트명</th><td contenteditable="true">베이징모터쇼 MobED 영상 제작</td></tr>
+      <tr><th>담당 파트</th><td contenteditable="true">골프 &middot; 그린 디렉터님 담당</td></tr>
+      <tr><th>전체 영상</th><td contenteditable="true">45초</td></tr>
+      <tr><th>골프 파트</th><td><span style="display:inline-block; background:#ff8a50; color:#111; padding:3px 12px; border-radius:4px; font-weight:600;">약 20초 분량 → 30초로 제작</span> <span style="color:#999; font-size:13px; margin-left:6px;">종합편집에서 다듬을 예정</span></td></tr>
+      <tr><th>접근 방향</th><td contenteditable="true">기존 MobED CES 영상의 <strong>실사판 제작</strong> 개념으로 접근</td></tr>
+    </table>
+  </section>
+
+  <!-- AI 이미지 생성 -->
+  <section class="section">
+    <div class="section-title">02 &mdash; AI 비디오 생성</div>
+    <div class="guide-card">
+      <h3>Kling 기본 설정</h3>
+      <div class="guide-row">
+        <span class="guide-key">로그인</span>
+        <span class="guide-val" contenteditable="true">플로바 구글 계정 사용 필수</span>
+      </div>
+      <div class="guide-row">
+        <span class="guide-key">작업 모드</span>
+        <span class="guide-val" contenteditable="true">좌측 탭의 <strong>Omni</strong> 반드시 사용</span>
+      </div>
+      <div class="guide-row">
+        <span class="guide-key">프롬프트</span>
+        <span class="guide-val" contenteditable="true">기존에 작성된 프롬프트 참고하여 작성</span>
+      </div>
+    </div>
+
+    <div class="guide-card">
+      <h3>Elements 등록 방법 <span style="font-size:14px; font-weight:400; color:#aaa; margin-left:6px;">(Kling 내 설정)</span></h3>
+      <ol class="steps">
+        <li contenteditable="true">프롬프트 작성란 바로 위의 <strong>Element 영역</strong> 확인 (나나, 모베드 등 기존 항목 있음)</li>
+        <li contenteditable="true"><strong>All</strong> 버튼 클릭</li>
+        <li contenteditable="true"><strong>+</strong> 아이콘 클릭하여 신규 Element 추가</li>
+      </ol>
+
+      <div class="element-grid">
+        <div class="element-chip">
+          <div class="name">모베드골프</div>
+          <div class="type">모빌리티 등록</div>
+        </div>
+        <div class="element-chip">
+          <div class="name">마이클</div>
+          <div class="type">인물 등록</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 인물 설정 -->
+  <section class="section">
+    <div class="section-title">03 &mdash; 인물 설정 (Midjourney 캐릭터 생성)</div>
+    <div class="char-grid">
+      <div class="char-item">
+        <span class="char-label">연령</span>
+        <span class="char-value">40대 ~ 50대</span>
+      </div>
+      <div class="char-item">
+        <span class="char-label">성별</span>
+        <span class="char-value">남성</span>
+      </div>
+      <div class="char-item">
+        <span class="char-label">복장</span>
+        <span class="char-value">골프복</span>
+      </div>
+      <div class="char-item">
+        <span class="char-label">하의</span>
+        <span class="char-value"><span class="color-swatch" style="background:#d2b48c;"></span>베이지색 바지</span>
+      </div>
+      <div class="char-item">
+        <span class="char-label">상의</span>
+        <span class="char-value"><span class="color-swatch" style="background:#fff;"></span>흰색</span>
+      </div>
+      <div class="char-item">
+        <span class="char-label">모자</span>
+        <span class="char-value"><span class="color-swatch" style="background:#fff;"></span>흰색</span>
+      </div>
+      <div class="char-item">
+        <span class="char-label">신발</span>
+        <span class="char-value"><span class="color-swatch" style="background:#111;"></span>검정</span>
+      </div>
+      <div class="char-item">
+        <span class="char-label">컬러 톤</span>
+        <span class="char-value">저채도 유지 (MobED 디자인에 시선 집중)</span>
+      </div>
+      <div class="char-item char-full">
+        <span class="char-label">참고</span>
+        <span class="char-value">기존 MobED 영상 인물과 유사하게 가능 · 너무 백발은 지양</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 촬영 배경 후보지 -->
+  <section class="section">
+    <div class="section-title">04 &mdash; 촬영 배경 후보지 (베이징 기준)</div>
+
+    <div class="location-card">
+      <span class="location-num">01</span>
+      <h4>빈장원</h4>
+      <div class="cn-name">华彬庄园 / Reignwood Pine Valley</div>
+      <div class="location-detail">
+        베이징 창핑구 장성 인근에 위치한 초프리미엄 골프 리조트. 잭 니클라우스가 설계한 코스로, 웅장한 산세와 고급스러운 클럽하우스가 어우러져 격조 높은 라운드 배경을 연출할 수 있다.
+      </div>
+    </div>
+
+    <div class="location-card">
+      <span class="location-num">02</span>
+      <h4>휘황국제골프장</h4>
+      <div class="cn-name">辉煌国际球高尔夫球场 · 옌칭</div>
+      <div class="location-detail">
+        옌칭 송산 자락의 반산 지형을 활용한 코스로, 북쪽 산맥과 남쪽 관팅저수지가 함께 조망되는 탁 트인 자연 경관이 특징이다. 다이내믹한 지형 변화가 영상에 입체감을 더해 줄 수 있다.
+      </div>
+    </div>
+
+    <div class="location-card">
+      <span class="location-num">03</span>
+      <h4>베이징 컨트리 골프클럽</h4>
+      <div class="cn-name">北京乡村高尔夫俱乐部</div>
+      <div class="location-detail">
+        베이징 대표 대형 골프장으로, 인공호수와 잘 가꾸어진 수목 조경이 정돈되고 세련된 분위기를 자아낸다. 넓고 평탄한 페어웨이가 MobED의 주행 장면을 담기에 적합한 배경이 된다.
+      </div>
+    </div>
+  </section>
+
+  <!-- 제작 프로세스 -->
+  <section class="section">
+    <div class="section-title">05 &mdash; 제작 프로세스</div>
+
+    <div class="process-flow">
+      <div class="process-step">
+        <div class="step-num">STEP 1</div>
+        <div class="step-title" contenteditable="true">가이드 영상 제작</div>
+        <div class="step-desc" contenteditable="true">Kling + Midjourney 활용<br>골프 파트 30초 분량</div>
+      </div>
+      <div class="process-arrow">▶</div>
+      <div class="process-step">
+        <div class="step-num">STEP 2</div>
+        <div class="step-title" contenteditable="true">기획안 전달</div>
+        <div class="step-desc" contenteditable="true">가이드 영상 기반 정리<br>담당: 김은준</div>
+      </div>
+      <div class="process-arrow">▶</div>
+      <div class="process-step">
+        <div class="step-num">STEP 3</div>
+        <div class="step-title" contenteditable="true">가이드 영상 편집</div>
+        <div class="step-desc" contenteditable="true">피드백 반영 수정<br>시사 및 검수</div>
+      </div>
+      <div class="process-arrow">▶</div>
+      <div class="process-step">
+        <div class="step-num">STEP 4</div>
+        <div class="step-title" contenteditable="true">납품</div>
+        <div class="step-desc" contenteditable="true">최종본 전달<br>4/20 목표</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 제작 일정 -->
+  <section class="section">
+    <div class="section-title">06 &mdash; 제작 일정</div>
+
+    <!-- 3월 -->
+    <p style="font-size:18px; font-weight:600; color:#fff; margin-bottom:12px;">3월</p>
+    <div class="calendar">
+      <div class="cal-header">
+        <span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span>일</span>
+      </div>
+      <div class="cal-grid">
+        <!-- 3/23 주 — 23(월)~25(수) 빈칸 -->
+        <div class="cal-day empty"></div>
+        <div class="cal-day empty"></div>
+        <div class="cal-day empty"></div>
+        <div class="cal-day phase-work today">
+          <div class="day-num">26</div>
+          <div class="day-label">가이드 영상<br>제작 시작</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">27</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">28</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">29</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <!-- 3/30 주 -->
+        <div class="cal-day phase-work">
+          <div class="day-num">30</div>
+          <div class="day-label">가이드 영상<br>제작</div>
+        </div>
+        <div class="cal-day phase-work">
+          <div class="day-num">31</div>
+          <div class="day-label">가이드 영상<br>제작</div>
+        </div>
+      </div>
+
+      <div class="cal-legend">
+        <div class="cal-legend-item">
+          <div class="cal-legend-dot" style="background:rgba(99,102,241,0.5);"></div>제작
+        </div>
+        <div class="cal-legend-item">
+          <div class="cal-legend-dot" style="background:#fff; box-shadow:inset 0 0 0 2px #fff;"></div>오늘
+        </div>
+      </div>
+    </div>
+
+    <!-- 4월 -->
+    <p style="font-size:18px; font-weight:600; color:#fff; margin-bottom:12px; margin-top:28px;">4월</p>
+    <div class="calendar">
+      <div class="cal-header">
+        <span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span><span>일</span>
+      </div>
+      <div class="cal-grid">
+        <!-- 4/1 주 — 월,화 빈칸 (4/1=수) -->
+        <div class="cal-day empty"></div>
+        <div class="cal-day empty"></div>
+        <div class="cal-day phase-work">
+          <div class="day-num">1</div>
+          <div class="day-label">가이드 영상<br>제작 마무리</div>
+        </div>
+        <div class="cal-day phase-milestone">
+          <div class="day-num">2</div>
+          <div class="day-label">1차 가이드<br>전달</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">3</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">4</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">5</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <!-- 4/6 주 -->
+        <div class="cal-day phase-review">
+          <div class="day-num">6</div>
+          <div class="day-label">수정 작업</div>
+        </div>
+        <div class="cal-day phase-review">
+          <div class="day-num">7</div>
+          <div class="day-label">수정 작업</div>
+        </div>
+        <div class="cal-day phase-review">
+          <div class="day-num">8</div>
+          <div class="day-label">수정 작업</div>
+        </div>
+        <div class="cal-day phase-milestone">
+          <div class="day-num">9</div>
+          <div class="day-label">1차 시사</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">10</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">11</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">12</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <!-- 4/13 주 -->
+        <div class="cal-day phase-final">
+          <div class="day-num">13</div>
+          <div class="day-label">시사 후<br>수정</div>
+        </div>
+        <div class="cal-day phase-final">
+          <div class="day-num">14</div>
+          <div class="day-label">시사 후<br>수정</div>
+        </div>
+        <div class="cal-day phase-final">
+          <div class="day-num">15</div>
+          <div class="day-label">시사 후<br>수정</div>
+        </div>
+        <div class="cal-day phase-milestone">
+          <div class="day-num">16</div>
+          <div class="day-label">2차 시사</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">17</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">18</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">19</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <!-- 4/20 주 -->
+        <div class="cal-day phase-deadline">
+          <div class="day-num">20</div>
+          <div class="day-label">납품</div>
+        </div>
+        <div class="cal-day">
+          <div class="day-num">21</div>
+        </div>
+        <div class="cal-day">
+          <div class="day-num">22</div>
+        </div>
+        <div class="cal-day">
+          <div class="day-num">23</div>
+        </div>
+        <div class="cal-day phase-deadline">
+          <div class="day-num">24</div>
+          <div class="day-label">베이징<br>모터쇼 개막</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">25</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <div class="cal-day rest">
+          <div class="day-num">26</div>
+          <div class="day-label">OFF</div>
+        </div>
+        <!-- 4/27 주 -->
+        <div class="cal-day">
+          <div class="day-num">27</div>
+        </div>
+        <div class="cal-day">
+          <div class="day-num">28</div>
+        </div>
+        <div class="cal-day">
+          <div class="day-num">29</div>
+        </div>
+        <div class="cal-day">
+          <div class="day-num">30</div>
+        </div>
+      </div>
+
+      <div class="cal-legend">
+        <div class="cal-legend-item">
+          <div class="cal-legend-dot" style="background:rgba(99,102,241,0.5);"></div>가이드 영상 제작
+        </div>
+        <div class="cal-legend-item">
+          <div class="cal-legend-dot" style="background:rgba(255,138,80,0.5);"></div>마일스톤
+        </div>
+        <div class="cal-legend-item">
+          <div class="cal-legend-dot" style="background:rgba(34,197,94,0.5);"></div>수정 작업
+        </div>
+        <div class="cal-legend-item">
+          <div class="cal-legend-dot" style="background:rgba(244,63,94,0.5);"></div>시사 후 수정 / 최종
+        </div>
+        <div class="cal-legend-item">
+          <div class="cal-legend-dot" style="background:#ff8a50;"></div>납품 / 모터쇼
+        </div>
+        <div class="cal-legend-item">
+          <div class="cal-legend-dot" style="background:#333; opacity:0.45;"></div>OFF (금·토·일)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>진행 중 어려운 부분이 있으시면 언제든지 연락 주세요.</p>
+  </div>
+
+</div>
+
+<script>
+  // 텍스트 편집 가능 — 나머지 요소에도 적용
+  document.querySelectorAll('.location-detail, .location-card h4, .cn-name, .char-value, .element-chip .name, .element-chip .type, .footer p').forEach(el => {
+    el.setAttribute('contenteditable', 'true');
+  });
+
+  // 달력 카드 클릭 → 완료 토글
+  document.querySelectorAll('.cal-day:not(.empty):not(.rest)').forEach(day => {
+    // done-badge 삽입
+    if (!day.querySelector('.done-badge')) {
+      const badge = document.createElement('div');
+      badge.className = 'done-badge';
+      badge.textContent = '완료';
+      day.appendChild(badge);
+    }
+    day.addEventListener('click', function(e) {
+      // contenteditable 영역 클릭 시 무시
+      if (e.target.getAttribute('contenteditable') === 'true') return;
+      this.classList.toggle('done');
+    });
+  });
+</script>
+</body>
+</html>
